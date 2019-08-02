@@ -105,6 +105,9 @@
 
 <!-- end custom head snippets -->
 
+    <script type="text/javascript" async
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
   </head>
 
   <body class="layout--single">
@@ -351,11 +354,11 @@
 <p>하지만, W를 feature에 매핑하는 경우에는 다릅니다. W는 Z처럼 고정된 분포를 따르지 않습니다. sampling density는 학습된 piecewise continuous mapping f(z) (f는 mapping network 입니다)에 의해 정해지게 됩니다. 따라서, warping(틀어짐)이 많이 일어나지 않습니다. 그렇기 때문에 factors of variation은 더욱 linear하고, disentangled 하다고 할 수 있습니다. 이것이 바로 z를 곧바로 feature에 매핑하는 것보다 w에 매핑하는 것의 장점입니다.</p>
 
 <h3 id="2-synthesis-network">2. Synthesis Network</h3>
-<p>z를 중간 latent space W에 매핑을 한 뒤에 이 w는 “A”를 거쳐서 style, $y = (y_s, y_b)$로 변형됩니다. 이때 A는 학습된 affine transform 입니다. 그리고 이 style들은 AdaIN(adaptive instance normalization) opeartion을 control 합니다.</p>
+<p>z를 중간 latent space W에 매핑을 한 뒤에 이 w는 “A”를 거쳐서 style, <script type="math/tex">y = (y_s, y_b)</script>로 변형됩니다. 이때 A는 학습된 affine transform 입니다. 그리고 이 style들은 AdaIN(adaptive instance normalization) opeartion을 control 합니다.</p>
 
 <script type="math/tex; mode=display">AdaIN(x_i, y) = y_{s,i}{ x_i - \mu(x_i) \over \sigma(x_i)}+ y_{b,i}</script>
 
-<p><a href="https://arxiv.org/pdf/1703.06868.pdf">AdaIN</a>은 style transfer를 할 때 많이 쓰이는 방법으로, 임의의 style transfer를 실시간으로 가능하게 합니다. (나중에 이 논문도 읽어봐야겠네요.) 여기서 feature map $x_i$는 normalized 된 다음에, style로 변환된 두 y로 scaled, biased 됩니다. style이 입혀지는 거죠. 이 과정을 매 layer 마다 반복합니다. 그리고 이러한 방법은 <strong>scale-specific control</strong> 을 가능하게 합니다.</p>
+<p><a href="https://arxiv.org/pdf/1703.06868.pdf">AdaIN</a>은 style transfer를 할 때 많이 쓰이는 방법으로, 임의의 style transfer를 실시간으로 가능하게 합니다. (나중에 이 논문도 읽어봐야겠네요.) 여기서 feature map <script type="math/tex">x_i</script>는 normalized 된 다음에, style로 변환된 두 y로 scaled, biased 됩니다. style이 입혀지는 거죠. 이 과정을 매 layer 마다 반복합니다. 그리고 이러한 방법은 <strong>scale-specific control</strong> 을 가능하게 합니다.</p>
 
 <p><img src="https://i.imgur.com/0zicfnK.jpg" alt="무제" /></p>
 
