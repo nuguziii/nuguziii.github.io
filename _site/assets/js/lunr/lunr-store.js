@@ -13,4 +13,9 @@ var store = [{
         "excerpt":"이 글은 2019 CVPR 논문, Structured Knowledge Distillation for Semantic Segmentation 를 참고하여 작성하였습니다. Knowledge distillation은 실제로 서비스에 적용하는 측면에서 굉장히 중요한 부분인 것 같아서 관심이 많은 연구주제 중 하나입니다. knowledge distillation에 대해서는 Ujjwal Upadhyay’s Blog에 정의와 필요성에 대해서 잘 설명되어 있으니 참고하면 좋을 것 같습니다. (+ Distilling the Knowledge...","categories": ["Paper Review"],
         "tags": ["Knowledge Distillation","Semantic Segmentation"],
         "url": "http://localhost:4000/paper%20review/PR-003/",
+        "teaser":null},{
+        "title": "[논문읽기] Image Super-Resolution by Neural Texture Transfer(SRNTT)",
+        "excerpt":"이 글은 2019 CVPR 논문, Image Super-Resolution by Neural Texture Transfer를 참고하여 작성하였습니다. Image Denoising 관련된 논문 Noise2Noise을 읽은 적이 있었는데, 이번에는 super-resolution은 영상의 해상도를 더 좋게하는 것입니다. 대표적인 super-resolution 논문으로는 2016년 논문인 SRGAN 있습니다. perceptual loss로 GAN을 사용해서 영상의 texture를 잘 살린 논문이었습니다. 오늘 소개할 논문은 reference-based super-resolution으로 reference를...","categories": ["Paper Review"],
+        "tags": ["Vision"],
+        "url": "http://localhost:4000/paper%20review/PR-004/",
         "teaser":null}]

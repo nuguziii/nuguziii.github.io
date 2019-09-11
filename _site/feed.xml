@@ -1,4 +1,113 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-08-03T01:32:29+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">ZZEN’s Blog</title><subtitle>Hello! ZZEN의 개발 블로그입니다 :&gt;</subtitle><author><name>ZZEN</name><email>nuguziii@naver.com</email></author><entry><title type="html">[논문읽기] Noise2Noise: Learning Image Restoration without Clean Data</title><link href="http://localhost:4000/paper%20review/PR-002/" rel="alternate" type="text/html" title="[논문읽기] Noise2Noise: Learning Image Restoration without Clean Data" /><published>2019-08-02T00:00:00+09:00</published><updated>2019-08-02T00:00:00+09:00</updated><id>http://localhost:4000/paper%20review/PR-002</id><content type="html" xml:base="http://localhost:4000/paper%20review/PR-002/">&lt;p&gt;이 글은 2018 ICML 논문, &lt;a href=&quot;https://arxiv.org/pdf/1803.04189.pdf&quot;&gt;Noise2Noise: Learning Image Restoration without Clean Data&lt;/a&gt;와 &lt;a href=&quot;https://vimeo.com/287807759&quot;&gt;TechTalksTV 영상&lt;/a&gt;을 참고하여 작성하였습니다.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-09-11T09:16:42+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">ZZEN’s Blog</title><subtitle>Hello! ZZEN의 개발 블로그입니다 :&gt;</subtitle><author><name>ZZEN</name><email>nuguziii@naver.com</email></author><entry><title type="html">[논문읽기] Image Super-Resolution by Neural Texture Transfer(SRNTT)</title><link href="http://localhost:4000/paper%20review/PR-004/" rel="alternate" type="text/html" title="[논문읽기] Image Super-Resolution by Neural Texture Transfer(SRNTT)" /><published>2019-09-10T00:00:00+09:00</published><updated>2019-09-10T00:00:00+09:00</updated><id>http://localhost:4000/paper%20review/PR-004</id><content type="html" xml:base="http://localhost:4000/paper%20review/PR-004/">&lt;p&gt;이 글은 2019 CVPR 논문, &lt;a href=&quot;https://arxiv.org/abs/1903.00834&quot;&gt;Image Super-Resolution by Neural Texture Transfer&lt;/a&gt;를 참고하여 작성하였습니다.&lt;/p&gt;
+
+&lt;p&gt;Image Denoising 관련된 논문 &lt;a href=&quot;https://nuguziii.github.io/paper%20review/PR-002/&quot;&gt;Noise2Noise&lt;/a&gt;을 읽은 적이 있었는데, 이번에는 super-resolution은 영상의 해상도를 더 좋게하는 것입니다. 대표적인 super-resolution 논문으로는 2016년 논문인 &lt;a href=&quot;(https://arxiv.org/abs/1609.04802)&quot;&gt;SRGAN&lt;/a&gt; 있습니다. perceptual loss로 GAN을 사용해서 영상의 texture를 잘 살린 논문이었습니다.&lt;/p&gt;
+
+&lt;p&gt;오늘 소개할 논문은 reference-based super-resolution으로 reference를 사용하여 아래 그림처럼(SRNTT) SRGAN 보다 더 좋은 성능을 보이고 있습니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/MFzkdau.jpg&quot; alt=&quot;xx&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;그럼 한번 어떠한 방법을 썼는지 한번 자세히 살펴보도록 하겠습니다:)&lt;/p&gt;
+
+&lt;h2 id=&quot;background&quot;&gt;Background&lt;/h2&gt;
+
+&lt;p&gt;Super Resolution은 저해상도 영상을 이용해 고해상도 영상을 되찾는 방법입니다. single image super resolution은 SISR로 부릅니다. 이때 고해상도 영상을 되살리는 과정에서 texture가 약간의 blurry하게 잘 드러나지 않는다는 문제점들이 있습니다.(그래서 이 문제를 SRGAN 논문에서는 perceptual loss를 사용하여 보완하였습니다.)&lt;/p&gt;
+
+&lt;p&gt;이러한 texture를 더 잘 살리고자 하는 방법으로 reference-based super-resolution(RefSR)도 있습니다. 모델이 주어진 저해상도 이미지에서 texture를 살리기는 어려우니, 참고될 만한 영상도 같이 제공하여서 texture를 더 잘 살릴 수 있도록 돕는 것이죠.&lt;/p&gt;
+
+&lt;p&gt;이 논문에서는 reference image들이 주어진 저해상도 이미지랑 관련이 있던 없던 기존 SISR 모델들보다 높은 성능을 보인다고 합니다. 관련이 있으면 훨씬 좋은 성능을, 관련이 없는 이미지라도 성능이 떨어지지 않고 기존 모델들과 비슷한 성능을 보입니다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;em&gt;adaptively transfers textures from the Ref images to the SR image&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;만약, 의미적으로 Ref image와 SR image가 연관이 있다면 Ref image의 텍스쳐를 transfer 하는 방식을 이용합니다.&lt;/p&gt;
+
+&lt;p&gt;주요 contribution은 다음과 같습니다.&lt;/p&gt;
+
+&lt;form&gt;
+  &lt;fieldset&gt;
+  &lt;div&gt;1. SISR보다 더 나은 성능 (lack of texture detail), RefSR의 문제점 개선&lt;/div&gt;&lt;br /&gt;
+  &lt;div&gt;2. SRNTT end-to-end deep model로 multi-scale neural texture transfer를 이용해 어떤 reference가 주어져도 SR 가능&lt;/div&gt;&lt;br /&gt;
+  &lt;div&gt;3. dataset CUFED5&lt;/div&gt;
+  &lt;/fieldset&gt;
+&lt;/form&gt;
+
+&lt;h2 id=&quot;approach&quot;&gt;Approach&lt;/h2&gt;
+
+&lt;p&gt;우선, 이 논문에서 제안한 전체적인 구조를 보시면 아래 그림과 같습니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/TMA6jNm.png&quot; alt=&quot;스크린샷 2019-09-10 오후 2.11.00&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Ref image에서 쓸만한 정보들을 뽑는 부분(Feature Swapping-노란색 부분), low resolution image에 쓸만한 정보들을 옮기며 해상도를 높이는 부분(Texture Transfer-파란색 부분) 이렇게 두 부분으로 나뉘어 있습니다. 여기서 쓸만한 정보들은 texture 가 되겠죠.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;script type=&quot;math/tex&quot;&gt;I^{SR}&lt;/script&gt;, &lt;script type=&quot;math/tex&quot;&gt;I^{LR}&lt;/script&gt;, &lt;script type=&quot;math/tex&quot;&gt;I^{Ref}&lt;/script&gt;가 있을 때, feature space에서 &lt;script type=&quot;math/tex&quot;&gt;I^{Ref}&lt;/script&gt;와 매칭되는 texture를 찾고 (Feature Swapping),
+매칭된 texture를 multi-scale 방식을 이용해 &lt;script type=&quot;math/tex&quot;&gt;I^{SR}&lt;/script&gt;로 transfer 한다. (Texture Transfer)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;feature-swapping&quot;&gt;Feature Swapping&lt;/h3&gt;
+
+&lt;p&gt;Feature Swapping에서는 &lt;script type=&quot;math/tex&quot;&gt;I^{Ref}&lt;/script&gt; 영상의 모든 부분을 탐색하면서 부분적으로 비슷한 텍스쳐가 있는지 찾아냅니다. 이때, &lt;script type=&quot;math/tex&quot;&gt;I^{Ref}&lt;/script&gt;와 &lt;script type=&quot;math/tex&quot;&gt;I^{LR}&lt;/script&gt; 사이에 매칭되는 texture가 있는지 판단하기 위해 inner product를 사용합니다.&lt;/p&gt;
+
+&lt;p&gt;j번째 ref patch와 &lt;script type=&quot;math/tex&quot;&gt;I^{LR}&lt;/script&gt; 사이의 inner product를 계산하여 similarity map &lt;script type=&quot;math/tex&quot;&gt;S_j&lt;/script&gt;를 구하는 식은 다음과 같습니다.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;S_j = \phi(I^{LR\uparrow}) * {P_j(\phi(I^{Ref\downarrow\uparrow}))}\over{ \mid\mid P_j(\phi(I^{Ref\downarrow\uparrow}))\mid\mid}&lt;/script&gt;
+
+&lt;p&gt;이때, &lt;script type=&quot;math/tex&quot;&gt;I^{Ref}&lt;/script&gt;와 &lt;script type=&quot;math/tex&quot;&gt;I^{LR}&lt;/script&gt;의 해상도를 맞춰주기 위해  &lt;script type=&quot;math/tex&quot;&gt;I^{LR}&lt;/script&gt; 은 up-sampling을 해주고, &lt;script type=&quot;math/tex&quot;&gt;I^{Ref}&lt;/script&gt;는 up-sampling과 down-sampling을 해주어 blurry하게 만듭니다. feature space &lt;script type=&quot;math/tex&quot;&gt;\phi(I)&lt;/script&gt;에서 유사도 매칭을 합니다.&lt;/p&gt;
+
+&lt;p&gt;구한 similarity map에서 높은 score를 갖는 부분들을 찾아서 transfer 시켜주기 위하여 swapped feature map M을 구합니다. 식은 아래와 같습니다.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;P_{w(x,y)}(M) = P_j * (\phi(I^{Ref})), j* = \arg \underset {j}{max}S_j(x,y)&lt;/script&gt;
+
+&lt;p&gt;이때는 &lt;script type=&quot;math/tex&quot;&gt;I^{Ref \downarrow \uparrow}&lt;/script&gt; 가 아닌 &lt;script type=&quot;math/tex&quot;&gt;I^{Ref}&lt;/script&gt;를 사용하여 구합니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;neural-texture-transfer&quot;&gt;Neural Texture Transfer&lt;/h3&gt;
+
+&lt;p&gt;위의 Feature Swapping 과정을 통해 나온 swapped feature map은 Neural Texture Transfer (전체 구조의 파란 부분)에 사용됩니다.&lt;/p&gt;
+
+&lt;p&gt;layer와 layer 사이의 자세한 구조는 아래 그림과 같습니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/0OxvPSs.png&quot; alt=&quot;texture_transfer&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;이전 layer에서 나온 output과 swapped feature map을 concatenate하여 residual block에 넣어주고, 이 결과를 output과 다시 더해줍니다. 이 과정을 계속 반복하며 점차 타겟인 HR resoultion에 도달하게 됩니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;loss&quot;&gt;Loss&lt;/h3&gt;
+
+&lt;p&gt;이 논문에서는 training을 위해 4가지 Loss를 사용합니다.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;Loss = L_{rec} + L_{per} + L_{adv} + L_{tex}&lt;/script&gt;
+
+&lt;p&gt;이때 reconstruction loss로는 MSE, perceptual loss는 VGG19의 relu5_1 layer를, adversarial loss로는 WGAN을 사용하였습니다.&lt;/p&gt;
+
+&lt;p&gt;그리고 이 논문에서는 SISR과 다르게 &lt;script type=&quot;math/tex&quot;&gt;I^{SR}&lt;/script&gt;과 &lt;script type=&quot;math/tex&quot;&gt;I^{Ref}&lt;/script&gt;사이의 texture difference도 고려하기 위해 loss &lt;script type=&quot;math/tex&quot;&gt;L_{tex}&lt;/script&gt;를 정의합니다.(&lt;script type=&quot;math/tex&quot;&gt;I^{SR}&lt;/script&gt;이 &lt;script type=&quot;math/tex&quot;&gt;M_l&lt;/script&gt;과 비슷해지기 위함)&lt;/p&gt;
+
+&lt;p&gt;식은 아래와 같습니다.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;L_{tex} = \sum_{l}\lambda_l{||Gr(\phi_l(I^{SR})\centerdot S_l^\star) - Gr(M_l \centerdot S_l^\star)||}_F&lt;/script&gt;
+
+&lt;p&gt;여기에서는 Gram matrix를 사용하였고, &lt;script type=&quot;math/tex&quot;&gt;S_l^{\star}&lt;/script&gt;(weighting map for all LR patches)를 사용하여 penalty를 줍니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;experimental-results&quot;&gt;Experimental Results&lt;/h2&gt;
+
+&lt;p&gt;이 논문에서는 CUFED5 데이터셋을 사용해서 다양한 similarity level에 따른 Ref image들을 정해줍니다. 4가지의 similarity level을 정의했고, 아래 그림에서 볼 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/wr17UDh.png&quot; alt=&quot;CUFED5&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;가장 왼쪽이 HR image이고, 그 옆에 차례대로 L1, L2, L3, L4 level 데이터셋입니다.&lt;/p&gt;
+
+&lt;p&gt;기존의 Super Resolution 논문들에서 제안한 방법과 비교한 그림입니다. SRNTT가 SRGAN과 비교했을 때도 성능이 좋고 같은 방법 (reference-based)을 사용한 CrossNet과 비교해도 훨씬 좋은 것 같습니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/IQm1aBA.jpg&quot; alt=&quot;캡처&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot;font-size:14px; color:gray;&quot;&gt;
+multi-scale transfer 방법으로 이전 논문보다 더 좋은 성과를 낼 수 있었던 것 같습니다. 8월 달에 바쁘다 보니 한 달 동안 글을 못썼는데, 한번 다시 열심히 써보도록 하겠습니다.
+&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Reference:&lt;/strong&gt;&lt;br /&gt;
+[1] &lt;a href=&quot;http://web.eecs.utk.edu/~zzhang61/project_page/SRNTT/cvpr2019_final.pdf&quot;&gt;Paper&lt;/a&gt;&lt;br /&gt;
+[2] &lt;a href=&quot;https://github.com/ZZUTK/SRNTT&quot;&gt;SRNTT github&lt;/a&gt;&lt;/p&gt;</content><author><name>ZZEN</name><email>nuguziii@naver.com</email></author><category term="Vision" /><summary type="html">이 글은 2019 CVPR 논문, Image Super-Resolution by Neural Texture Transfer를 참고하여 작성하였습니다.</summary></entry><entry><title type="html">[논문읽기] Noise2Noise: Learning Image Restoration without Clean Data</title><link href="http://localhost:4000/paper%20review/PR-002/" rel="alternate" type="text/html" title="[논문읽기] Noise2Noise: Learning Image Restoration without Clean Data" /><published>2019-08-02T00:00:00+09:00</published><updated>2019-08-02T00:00:00+09:00</updated><id>http://localhost:4000/paper%20review/PR-002</id><content type="html" xml:base="http://localhost:4000/paper%20review/PR-002/">&lt;p&gt;이 글은 2018 ICML 논문, &lt;a href=&quot;https://arxiv.org/pdf/1803.04189.pdf&quot;&gt;Noise2Noise: Learning Image Restoration without Clean Data&lt;/a&gt;와 &lt;a href=&quot;https://vimeo.com/287807759&quot;&gt;TechTalksTV 영상&lt;/a&gt;을 참고하여 작성하였습니다.&lt;/p&gt;
 
 &lt;p&gt;이 논문은 작년에 발표되었던 논문이지만, 읽었을 당시 매우 인상깊어서 꼭 블로그 글로 작성해보고 싶었습니다. Image Denoising 주제에 대해 관심이 많았었는데, 기존 논문들과 다른 방식으로 접근했던 점이 인상깊었습니다. 대부분의 Image Denoising Task 들은 supervised learning 으로 clean한 영상을 학습하기 위해서 noisy 영상과 original 영상을 모두 필요로 합니다. 하지만, 이 논문에서는 약간 다른 방법을 씁니다. 오로지 noisy한 영상만으로 clean한 영상을 뽑아내죠. clean한 영상이 없을 경우에 고민할 필요가 없어졌습니다.&lt;/p&gt;
 
