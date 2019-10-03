@@ -18,4 +18,9 @@ var store = [{
         "excerpt":"이 글은 2019 CVPR 논문, Image Super-Resolution by Neural Texture Transfer를 참고하여 작성하였습니다. Image Denoising 관련된 논문 Noise2Noise을 읽은 적이 있었는데, 이번에는 super-resolution은 영상의 해상도를 더 좋게하는 것입니다. 대표적인 super-resolution 논문으로는 2016년 논문인 SRGAN 있습니다. perceptual loss로 GAN을 사용해서 영상의 texture를 잘 살린 논문이었습니다. 오늘 소개할 논문은 reference-based super-resolution으로 reference를...","categories": ["Paper Review"],
         "tags": ["Vision"],
         "url": "http://localhost:4000/paper%20review/PR-004/",
+        "teaser":null},{
+        "title": "[논문읽기] A Comprehensive Overhaul of Feature Distillation",
+        "excerpt":"이 글은 2019 ICCV 논문, A Comprehensive Overhaul of Feature Distillation과 clova-ai blog를 참고하여 작성하였습니다. knowledge distillation 분야에 관심있어서 막 공부를 시작하는 사람들이 읽었으면 좋겠다고 생각하여 소개하게 된 논문입니다. 저도 knowledge distillation에 대한 대략적인 개념만 알고 최근 어떤 연구들이 있는지 찾아보던 중이었는데, 이 논문에서 지금까지 이루어진 distillation 연구들을 잘 정리해놓아서...","categories": ["Paper Review"],
+        "tags": ["Knowledge Distillation"],
+        "url": "http://localhost:4000/paper%20review/PR-005/",
         "teaser":null}]
