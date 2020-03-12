@@ -1,8 +1,8 @@
 ---
+title: "About"
 layout : single
 permalink : /about/
 ---
-## About
 
 안녕하세요, ZZEN 입니다.
 
@@ -55,11 +55,11 @@ Email: nuguziii@cglab.snu.ac.kr
 
 ## Publications
 
-- **Sitting Posture Prediction and Correction System using Arduino-Based Chair and Deep Learning Model**
+- **Sitting Posture Prediction and Correction System using Arduino-Based Chair and Deep Learning Model**<br>
 Haeyoon Cho, Hee Joe Choi, **Chae Eun Lee**, Choo Won Sir (equal contribution)
 [2019 IEEE 12th Conference on Service-Oriented Computing and Applications (SOCA)](https://ieeexplore.ieee.org/document/8953010), 2019.
 
-- **Customized Embedded System for Lower Limb Rehabilitation Patients**
+- **Customized Embedded System for Lower Limb Rehabilitation Patients**<br>
 **Chae Eun Lee**, Inn-chae Yeo, Inshil Doh
 [2018 IEEE 20th International Conference on Advanced Communication Technology (ICACT)](https://ieeexplore.ieee.org/document/8323706), 2018.
 
