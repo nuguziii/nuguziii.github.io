@@ -108,9 +108,9 @@ analytics:
 author:
   name             : "ZZEN"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "Hello! ZZEN의 개발 블로그입니다 :>"
+  bio              : "Hello :>"
   location         : "Seoul, Korea"
-  email            : "nuguziii@naver.com"
+  email            : "nuguziii@cglab.snu.ac.kr"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
