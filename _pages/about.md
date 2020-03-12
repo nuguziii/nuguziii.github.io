@@ -2,6 +2,7 @@
 layout : single
 permalink : /about/
 ---
+## About
 
 안녕하세요, ZZEN 입니다.
 
