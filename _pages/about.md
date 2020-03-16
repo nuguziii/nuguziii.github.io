@@ -51,16 +51,16 @@ Email: nuguziii@cglab.snu.ac.kr
 - **Image Restoration using Cross Consistency Loss**
 (2019.01 - 2019.12), CVLab research project
 
-- **FLOWER: Bookmark Page Management and Sharing Service** (2019.06 - 2019.11) [post](https://blog.naver.com/PostView.nhn?blogId=sw_maestro&logNo=221710898997&categoryNo=21&parentCategoryNo=21&from=thumbnailList)
+- **FLOWER: Web Memo Service** (2019.06 - 2019.11) [post](https://blog.naver.com/PostView.nhn?blogId=sw_maestro&logNo=221710898997&categoryNo=21&parentCategoryNo=21&from=thumbnailList)
 
 ## Publications
 
 - **Sitting Posture Prediction and Correction System using Arduino-Based Chair and Deep Learning Model**<br>
-Haeyoon Cho, Hee Joe Choi, **Chae Eun Lee**, Choo Won Sir (equal contribution)<br>
+Haeyoon Cho, Hee Joe Choi, **Chae Eun Lee**, Choo Won Sir (equal contribution) <br>
 [2019 IEEE 12th Conference on Service-Oriented Computing and Applications (SOCA)](https://ieeexplore.ieee.org/document/8953010), 2019.
 
 - **Customized Embedded System for Lower Limb Rehabilitation Patients**<br>
-**Chae Eun Lee**, Inn-chae Yeo, Inshil Doh<br>
+**Chae Eun Lee**, Inn-chae Yeo, Inshil Doh <br>
 [2018 IEEE 20th International Conference on Advanced Communication Technology (ICACT)](https://ieeexplore.ieee.org/document/8323706), 2018.
 
 ## Skills
