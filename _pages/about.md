@@ -51,7 +51,7 @@ Email: nuguziii@cglab.snu.ac.kr
 - **Image Restoration using Cross Consistency Loss**
 (2019.01 - 2019.12), CVLab research project
 
-- **FLOWER: Web Memo Service** (2019.06 - 2019.11) [post](https://blog.naver.com/PostView.nhn?blogId=sw_maestro&logNo=221710898997&categoryNo=21&parentCategoryNo=21&from=thumbnailList)
+- **FLOWER: Web Memo Service** (2019.06 - 2019.11) [video](https://www.youtube.com/watch?v=hMoJh5K7SQo) [post](https://blog.naver.com/PostView.nhn?blogId=sw_maestro&logNo=221710898997&categoryNo=21&parentCategoryNo=21&from=thumbnailList)
 
 ## Publications
 
