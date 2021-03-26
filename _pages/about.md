@@ -56,9 +56,13 @@ Hanju Global
 
 ## Publications
 
+- **Liver Segmentation in Abdominal CT Images via Auto-Context Neural Network and Self-Supervised Contour Attention**<br>
+Minyoung Chung, Jingyu Lee, Sanguk Park, **Chae Eun Lee**, Jeongjin Lee, Yeong-Gil Shin
+[Artificial Intelligence in Medicine (accepted for publication)](https://arxiv.org/pdf/2002.05895.pdf)
+
 - **Individual Tooth Detection and Identification from Dental Panoramic X-Ray Images via Point-wise Localization and Distance Regularization**<br>
 Minyoung Chung, Jusang Lee, Sanguk Park, Minkyung Lee, **Chae Eun Lee**, Jeongjin Lee, Yeong-Gil Shin<br>
-[arXiv:2004.05543](https://arxiv.org/abs/2004.05543)
+[Artificial Intelligence in Medicine, Vol. 111, Jan, 2021](https://arxiv.org/abs/2004.05543)
 
 - **Sitting Posture Prediction and Correction System using Arduino-Based Chair and Deep Learning Model**<br>
 Haeyoon Cho, Hee Joe Choi, **Chae Eun Lee**, Choo Won Sir (equal contribution) <br>
