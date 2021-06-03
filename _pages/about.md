@@ -20,7 +20,7 @@ Email: nuguziii at cglab.snu.ac.kr
 
 - Deep Learning
 
-- Medical Image Analysis
+- Representation Learning
 
 - Computer Vision
 
@@ -41,23 +41,18 @@ Ewha Womans University, Seoul, South Korea
 
 - **Software Maestro 10기** (2019.06 - 2019.11)
 
-- **Project of Online Shopping Mall Program Development (Outsourcing)** (2018.09 - 2018.10)<br>
-Hanju Global
-
 ## Personal Projects
-
-- **Comprehensive Analysis of Dental Panoramic X-Ray Images: Teeth Detection, Identification, Segmentation, and Anomaly Detection**
-(2020.02 - present)
-
-- **Image Restoration using Cross Consistency Loss**
-(2019.01 - 2019.12), CVLab research project
 
 - **FLOWER: Web Memo Service** (2019.06 - 2019.11) [video](https://www.youtube.com/watch?v=hMoJh5K7SQo) [post](https://blog.naver.com/PostView.nhn?blogId=sw_maestro&logNo=221710898997&categoryNo=21&parentCategoryNo=21&from=thumbnailList)
 
 ## Publications
 
+- **Voxel-level Siamese Representation Learning for Abdominal Multi-Organ Segmentation**<br>
+**Chae Eun Lee**, Minyoung Chung, Yeong-Gil Shin<br>
+[IEEE Transactions on Medical Imaging (Under peer-review)](https://arxiv.org/abs/2105.07672)
+
 - **Liver Segmentation in Abdominal CT Images via Auto-Context Neural Network and Self-Supervised Contour Attention**<br>
-Minyoung Chung, Jingyu Lee, Sanguk Park, **Chae Eun Lee**, Jeongjin Lee, Yeong-Gil Shin
+Minyoung Chung, Jingyu Lee, Sanguk Park, **Chae Eun Lee**, Jeongjin Lee, Yeong-Gil Shin<br>
 [Artificial Intelligence in Medicine (accepted for publication)](https://arxiv.org/pdf/2002.05895.pdf)
 
 - **Individual Tooth Detection and Identification from Dental Panoramic X-Ray Images via Point-wise Localization and Distance Regularization**<br>
