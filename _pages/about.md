@@ -49,11 +49,11 @@ Ewha Womans University, Seoul, South Korea
 
 - **Voxel-level Siamese Representation Learning for Abdominal Multi-Organ Segmentation**<br>
 **Chae Eun Lee**, Minyoung Chung, Yeong-Gil Shin<br>
-[IEEE Transactions on Medical Imaging (Under peer-review)](https://arxiv.org/abs/2105.07672)
+[IEEE Transactions on Medical Imaging (Under peer-review)](https://arxiv.org/abs/2105.07672), 2021
 
 - **Liver Segmentation in Abdominal CT Images via Auto-Context Neural Network and Self-Supervised Contour Attention**<br>
 Minyoung Chung, Jingyu Lee, Sanguk Park, **Chae Eun Lee**, Jeongjin Lee, Yeong-Gil Shin<br>
-[Artificial Intelligence in Medicine (accepted for publication)](https://arxiv.org/pdf/2002.05895.pdf)
+[Artificial Intelligence in Medicine (accepted for publication)](https://arxiv.org/pdf/2002.05895.pdf), 2021
 
 - **Individual Tooth Detection and Identification from Dental Panoramic X-Ray Images via Point-wise Localization and Distance Regularization**<br>
 Minyoung Chung, Jusang Lee, Sanguk Park, Minkyung Lee, **Chae Eun Lee**, Jeongjin Lee, Yeong-Gil Shin<br>
